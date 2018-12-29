@@ -1,9 +1,13 @@
+/*leetcode 23 :
+Merge k sorted linked lists and return it as one sorted list.
+Analyze and describe its complexity.*/
+
 #include<iostream>
 #include<vector>
 using namespace std;
 
 
-struct ListNode {
+struct ListNode {       //node
   int val;
   ListNode *next;
   ListNode(int x) : val(x), next(NULL) {}
@@ -17,7 +21,7 @@ bool operator <(ListNode x,ListNode y){
     return (x.val)<(y.val);
 }
 
-template <class T>
+template <class T>       //heap
 class Heap{
 public:
     Heap(int n):size(0),maxsize(n+1){
