@@ -14,13 +14,52 @@ class Bigint{
 public:
   Bigint() = default;
   Bigint(int x){
-    vec.push_back(x);
+    if(x>0)
+    while(x>0){
+      vec.push_back(x%10);
+      x = x/10;
+    }
+    else
+      vec.push_back(x);
   }
   Bigint(int * arr,int n){
     for(int i = n-1;i>=0;i--){
       vec.push_back(arr[i]);
     }
   }
+  /*        operator ==     */
+  bool operator ==(Bigint r) const{
+    if(vec.size()!=r.vec.size()){
+      return false;
+    }
+    else{
+      int k = 0;
+      while(k<vec.size()){
+        if(vec[k]!=r.vec[k])
+          return false;
+        k++;
+      }
+      return true;
+    }
+  }
+
+ bool operator <(Bigint r) const{
+   if(vec.size()<r.vec.size()) {
+     return true;
+   }
+   else if(vec.size()>r.vec.size()){
+     return false;
+   }
+   else{
+     int k = vec.size();
+     while(k>=0){
+       if(vec[k]<r.vec[k])
+        return true;
+        k--;
+     }
+     return false;
+   }
+ }
 
   Bigint operator +(Bigint r) const{     //add two bigint
     int cf = 0;
@@ -98,7 +137,7 @@ public:
     Bigint temp = *this-r;
     while(temp.vec[0]!=-1){
       count = count + Bigint(1);;
-      temp = temp - r;
+      temp = temp-r;
     }
     return count;
   }
@@ -106,14 +145,3 @@ public:
 private:
   vector<int> vec;
 };
-
-int main(){
-  int a[] = {1,2};
-  int b[] = {1,2,3};
-  Bigint n1(a,2);
-  Bigint n2(b,3);
-  cout<<n1+n2<<endl;
-  cout<<n1-n2<<endl;
-  cout<<n1*n2<<endl;
-  cout<<n1/n2<<endl;
-}
