@@ -1,4 +1,4 @@
-/*main method :big number & quick compute*/
+/*head file*/
 
 #include<iostream>
 #include<vector>
@@ -66,7 +66,7 @@ public:
     Bigint temp;
     int num1 = vec.size();
     int num2 = r.vec.size();
-    int max = num1>num2?num1:num2;
+    int max = num1 > num2 ? num1 : num2;
     for(int i = 0;i < max;i++){
       int m = (i>=num1?0:vec[i]);
       int n = (i>=num2?0:r.vec[i]);
