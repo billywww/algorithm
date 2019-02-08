@@ -55,5 +55,5 @@ void nking(int n){
 }
 
 int main(){
-  nking(13);
+  nking(14);
 }
