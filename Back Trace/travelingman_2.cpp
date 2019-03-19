@@ -1,3 +1,4 @@
+// iteration
 #include<iostream>
 #define DOT_NUM 4
 
